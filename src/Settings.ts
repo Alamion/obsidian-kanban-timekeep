@@ -90,6 +90,7 @@ export interface KanbanSettings {
   'tag-sort'?: TagSort[];
   'time-format'?: string;
   'time-trigger'?: string;
+  'time-tracker-enabled'?: boolean;
 }
 
 export interface KanbanViewSettings {
@@ -138,6 +139,7 @@ export const settingKeyLookup: Set<keyof KanbanSettings> = new Set([
   'tag-sort',
   'time-format',
   'time-trigger',
+  'time-tracker-enabled',
 ]);
 
 export type SettingRetriever = <K extends keyof KanbanSettings>(
@@ -1246,6 +1248,48 @@ export class SettingsManager {
 
                 this.applySettingsUpdate({
                   $unset: ['move-task-metadata'],
+                });
+              });
+          });
+      });
+
+    new Setting(contentEl)
+      .setName(t('Show time tracker'))
+      .setDesc(
+        t('Display time tracker information from timekeep or simple-time-tracker code blocks.')
+      )
+      .then((setting) => {
+        let toggleComponent: ToggleComponent;
+
+        setting
+          .addToggle((toggle) => {
+            toggleComponent = toggle;
+
+            const [value, globalValue] = this.getSetting('time-tracker-enabled', local);
+
+            if (value !== undefined) {
+              toggle.setValue(value as boolean);
+            } else if (globalValue !== undefined) {
+              toggle.setValue(globalValue as boolean);
+            }
+
+            toggle.onChange((newValue) => {
+              this.applySettingsUpdate({
+                'time-tracker-enabled': {
+                  $set: newValue,
+                },
+              });
+            });
+          })
+          .addExtraButton((b) => {
+            b.setIcon('lucide-rotate-ccw')
+              .setTooltip(t('Reset to default'))
+              .onClick(() => {
+                const [, globalValue] = this.getSetting('time-tracker-enabled', local);
+                toggleComponent.setValue((globalValue as boolean) ?? false);
+
+                this.applySettingsUpdate({
+                  $unset: ['time-tracker-enabled'],
                 });
               });
           });

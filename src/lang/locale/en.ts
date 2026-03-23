@@ -107,6 +107,9 @@ const en = {
   'Move task data to card footer': 'Move task data to card footer',
   "When toggled, task data (from the Tasks plugin) will be displayed in the card's footer instead of the card's body.":
     "When toggled, task data (from the Tasks plugin) will be displayed in the card's footer instead of the card's body.",
+  'Show time tracker': 'Show time tracker',
+  'Display time tracker information from timekeep or simple-time-tracker code blocks.':
+    'Display time tracker information from timekeep or simple-time-tracker code blocks.',
   'Inline metadata position': 'Inline metadata position',
   'Controls where the inline metadata (from the Dataview plugin) will be displayed.':
     'Controls where the inline metadata (from the Dataview plugin) will be displayed.',

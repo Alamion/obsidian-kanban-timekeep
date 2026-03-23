@@ -1,22 +1,21 @@
-# Obsidian Kanban Plugin
+Look at [Original page](https://github.com/obsidian-community/obsidian-kanban) for basic info
 
-Create markdown-backed Kanban boards in [Obsidian](https://obsidian.md/)
+### What this fork does?
 
-- [Bugs, Issues, & Feature Requests](https://github.com/mgmeyers/obsidian-kanban/issues)
-- [Development Roadmap](https://github.com/mgmeyers/obsidian-kanban/projects/1)
+Look here:
 
-![Screen Shot 2021-09-16 at 12.58.22 PM.png](https://github.com/mgmeyers/obsidian-kanban/blob/main/docs/Assets/Screen%20Shot%202021-09-16%20at%2012.58.22%20PM.png)
+1. There is a new toggler in settings:
 
-![Screen Shot 2021-09-16 at 1.10.38 PM.png](https://github.com/mgmeyers/obsidian-kanban/blob/main/docs/Assets/Screen%20Shot%202021-09-16%20at%201.10.38%20PM.png)
+![img.png](docs/Assets/time_track_settings.png)
 
-## Documentation
+If you turn it on, magic happens.
 
-Find the plugin documentation here: [Obsidian Kanban Plugin Documentation](https://publish.obsidian.md/kanban/)
+For every file, this thing will parse all `timekeep` and `simple-time-tracker` code blocks:
 
-## Support
+![img.png](docs/Assets/time_track_in_file.png)
 
-If you find this plugin useful and would like to support its development, you can sponsor [me](https://github.com/mgmeyers) on Github, or buy me a coffee.
+And then show them in Kanban board:
 
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/mgmeyers?label=Sponsor&logo=GitHub%20Sponsors&style=for-the-badge)](https://github.com/sponsors/mgmeyers)
+![img.png](docs/Assets/time_track_Kanban.png)
 
-<a href="https://www.buymeacoffee.com/mgme"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=mgme&button_colour=5F7FFF&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
+Everything should work fine and intuitively, but if it isn't, create an issue, I check them every few days.

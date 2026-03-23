@@ -15,3 +15,6 @@ dist
 test-vault/
 main.js
 styles.css
+yarn.lock
+data.json
+tmp/

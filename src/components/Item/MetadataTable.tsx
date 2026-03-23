@@ -13,6 +13,7 @@ import { KanbanContext } from '../context';
 import { c, parseMetadataWithOptions, useGetDateColorFn } from '../helpers';
 import { DataKey, FileMetadata, Item, PageData } from '../types';
 import { Tags } from './ItemContent';
+import { TimeTrackerRow } from './TimeTrackerRow';
 
 export interface ItemMetadataProps {
   item: Item;
@@ -39,7 +40,8 @@ export function ItemMetadata({ item, searchQuery }: ItemMetadataProps) {
   const mergeInlineMetadata =
     stateManager.useSetting('inline-metadata-position') === 'metadata-table';
   const metadataKeys = stateManager.useSetting('metadata-keys');
-  const { fileMetadata, fileMetadataOrder, inlineMetadata } = item.data.metadata;
+  const showTimeTracker = stateManager.useSetting('time-tracker-enabled');
+  const { fileMetadata, fileMetadataOrder, inlineMetadata, file } = item.data.metadata;
 
   const metadata = useMemo(() => {
     const metadata = mergeInlineMetadata
@@ -63,13 +65,14 @@ export function ItemMetadata({ item, searchQuery }: ItemMetadataProps) {
     return Array.from(metadataOrder);
   }, [fileMetadataOrder, mergeInlineMetadata, inlineMetadata]);
 
-  if (!metadata) {
+  if (!metadata && !showTimeTracker && !file) {
     return null;
   }
 
   return (
     <div className={c('item-metadata-wrapper')}>
       <MetadataTable metadata={metadata} order={order} searchQuery={searchQuery} />
+      {showTimeTracker && file && <TimeTrackerRow filePath={file.path} />}
     </div>
   );
 }

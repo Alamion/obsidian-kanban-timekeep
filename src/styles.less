@@ -928,6 +928,49 @@ button.kanban-plugin__new-item-button {
   color: var(--text-normal);
 }
 
+.kanban-plugin__time-tracker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  .time-tracker-total {
+    font-weight: 500;
+    color: var(--text-normal);
+  }
+
+  .time-tracker-current {
+    color: var(--text-muted);
+    font-size: 0.9em;
+  }
+
+  .time-tracker-btn {
+    padding: 4px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition:
+      opacity 0.2s,
+      color 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &[data-running='true'] {
+      color: var(--text-error);
+    }
+
+    &[data-running='false'] {
+      color: var(--text-success);
+    }
+  }
+}
+
 .kanban-plugin__item-prefix-button-wrapper,
 .kanban-plugin__item-postfix-button-wrapper {
   display: flex;
