@@ -15,3 +15,11 @@ And then show them in Kanban board:
 ![img.png](docs/Assets/time_track_Kanban.png)
 
 Everything should work intuitively, if it isn't, create an issue. I check them every few days.
+
+
+### How to use
+
+Since it is a small feat on giant plugin, (under GNU license), it wouldn't go public in Obsidian storage.
+
+So, Download `main.js`; `manifest.json`; `styles.css` from the latest release and replace usual Kanban files in 
+`path/to/obsidian/.obsidian/plugins/obsidian-kanban/` with these ones. Then restart Obsidian and everything should work.
