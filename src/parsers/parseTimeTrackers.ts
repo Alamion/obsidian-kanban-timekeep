@@ -18,7 +18,7 @@ export interface ParsedTimeTracker {
 
 export function parseTimeTrackersFromMarkdown(md: string): ParsedTimeTracker[] {
   const results: ParsedTimeTracker[] = [];
-  const regex = /```(?:timekeep|simple-time-tracker)\n([\s\S]*?)```/g;
+  const regex = /```(?:timekeep|simple-time-tracker) *\n([\s\S]*?)```/g;
 
   let match;
   while ((match = regex.exec(md)) !== null) {
